@@ -1,22 +1,21 @@
 <template>
   <header>
     <div class="navbar">
-        <router-link class="navbar_logo" to="/">
-          <div class="img navbar_logo_item"><img src="@/assets/logo.png"></div>
-          <b class="navbar_logo_item header">Конференции</b></router-link>
-
+      <router-link class="navbar_logo" to="/">
+        <div class="img navbar_logo_item"><img src="@/assets/logo.png"></div>
+        <b class="navbar_logo_item header">Конференции</b></router-link>
 
       <ul class="navbar_links">
         <li>
-          <router-link  class="navbar_links_item" to="/">Главная</router-link>
+          <router-link class="navbar_links_item" to="/">Главная</router-link>
         </li>
         <li>
-          <router-link  class="navbar_links_item" to="/">Мероприятия</router-link>
+          <router-link class="navbar_links_item" to="/">Мероприятия</router-link>
         </li>
       </ul>
       <ul class="btns">
         <li>
-          <router-link to="/autho" type="button" class="btn btn-outline-primary">Войти в аккаунт</router-link>
+          <div type="button" class="btn btn-outline-primary" @click="$emit('open')">Войти в аккаунт</div>
         </li>
       </ul>
     </div>
@@ -26,76 +25,74 @@
 <script>
 export default {
   name: 'Header',
-  props: {},
-  data() {
-    return {}
-  }
 }
 </script>
 
 <style scoped>
 
-header{
+header {
   background-color: white;
   display: flex;
   font-family: Gilroy;
 }
-.navbar{
+
+.navbar {
   display: flex;
   align-items: center;
   width: 100%;
   margin: 20px 30px;
 }
 
-.navbar_logo{
+.navbar_logo {
   display: flex;
   justify-content: center !important;
-  align-items: center!important;
+  align-items: center !important;
   text-decoration: none;
 }
 
-ul{
+ul {
   display: flex !important;
-  align-items: center!important;
+  align-items: center !important;
   margin-bottom: 0;
   padding-left: 0;
 }
-li{
+
+li {
   list-style-type: none;
 }
 
-.navbar_links{
+.navbar_links {
   font-weight: normal;
   text-transform: uppercase;
   font-size: 1.2em;
 }
 
-.navbar_links_item{
-  color: black!important;
+.navbar_links_item {
+  color: black !important;
   margin-right: 30px;
 }
 
-a{
-  text-decoration: none!important;
+a {
+  text-decoration: none !important;
 }
 
-.header{
-  color:#4B6EB9;
-  font-weight:bold;
-  font-size:2em;
-  margin-left:30px;
+.header {
+  color: #4B6EB9;
+  font-weight: bold;
+  font-size: 2em;
+  margin-left: 30px;
   background-color: white;
   font-weight: 600;
 }
 
-.btn{
+.btn {
   color: #4B6EB9;
   border-color: #4B6EB9;
   font-size: 1.2em;
   float: right;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: #4B6EB9;
   color: white;
 }
