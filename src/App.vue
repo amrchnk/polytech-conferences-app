@@ -20,4 +20,10 @@ export default {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
+
+router-link{
+  text-decoration: none!important;
+}
+
+@import url("assets/fonts/gilroy/stylesheet.css");
 </style>
