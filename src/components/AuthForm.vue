@@ -1,28 +1,31 @@
 <template>
-  <div class="main">
-    <div class="form">
-      <div class="form_header">
-        <h2>
-          Вход в систему для организаторов
-        </h2>
-        <i class="material-icons" @click="$emit('close')">close</i>
-      </div>
-
-      <div class="form_fields">
-        <div class="form_fields_field">
-          <label class="form-label">Логин</label>
-          <input class="form-control">
+  <div class="main_container">
+    <div class="main">
+      <div class="form">
+        <div class="form_header">
+          <h2>
+            Вход в систему для организаторов
+          </h2>
+          <i class="material-icons" @click="$emit('close')">close</i>
         </div>
-        <div class="form_fields_field">
-          <label class="form-label">Пароль</label>
-          <input class="form-control">
-        </div>
-      </div>
 
-      <div class="form_buttons">
-        <button class="btn">Войти</button>
+        <div class="form_fields">
+          <div class="form_fields_field">
+            <label class="form-label">Логин</label>
+            <input class="form-control">
+          </div>
+          <div class="form_fields_field">
+            <label class="form-label">Пароль</label>
+            <input class="form-control">
+          </div>
+        </div>
+
+        <div class="form_buttons">
+          <button class="btn">Войти</button>
+        </div>
       </div>
     </div>
+    <div id="overlay"></div>
   </div>
 </template>
 
@@ -33,11 +36,26 @@ export default {
 </script>
 
 <style scoped>
+.main_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .main {
+  width: 100%!important;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 .form {
@@ -45,7 +63,6 @@ export default {
   background-color: white;
   border-radius: 10px;
   border: 0.5px solid #E5E5E5;
-  margin-top: 30px;
   padding: 25px;
 }
 
@@ -94,5 +111,19 @@ i:hover {
 .btn:hover {
   background-color: #4B6EB9;
   color: white;
+}
+
+#overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9998;
+  cursor: pointer;
 }
 </style>
