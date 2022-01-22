@@ -493,13 +493,14 @@ def get_conf_members(conference_id):
         connection = db_get_conn()
         cursor = connection.cursor()
 
-        select_req = """SELECT full_name FROM users JOIN conference_member ON users.id = conference_member.user_id AND conference_member.conference_id = {}""".format(conference_id)
+        select_req = """SELECT full_name, conference_topic FROM users JOIN conference_member ON users.id = conference_member.user_id AND conference_member.conference_id = {}""".format(conference_id)
         cursor.execute(select_req)
         data = cursor.fetchall()
 
         if len(data) > 0:
             for row in data:
-                members.append({'full_name': row[0]})
+                members.append({'full_name': row[0],
+                                'topic': row[1]})
     except(Exception) as error:
         print("Ошибка при работе с базой данных", error)
     finally:
